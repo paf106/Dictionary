@@ -9,12 +9,15 @@ namespace Diccionario
 {
     class Dictionary
     {
-        private string name;
-        private ArrayList words = new ArrayList();
-        public Dictionary(string name,ArrayList words)
+        private String name;
+        private Dictionary<String,String> words = new Dictionary<string, string>();
+
+        public Dictionary(string name, Dictionary<string, string> words)
         {
             this.name = name;
             this.words = words;
         }
+
+
     }
 }

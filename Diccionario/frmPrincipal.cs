@@ -128,7 +128,17 @@ namespace Diccionario
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            gvWords.Visible = true;
+            DataSet dsResults = new DataSet();
+            DataView dv = new DataView();
             String wordToFind = txtSearch.Text;
+            String dictionaryToFind = cbSearchDictionary.SelectedItem.ToString();
+
+            String command = "select * from " + dictionaryToFind + " where word like \'%" + wordToFind + "%\'";
+            MySqlDataAdapter daWords = new MySqlDataAdapter(command, con);
+            daWords.Fill(dsResults, dictionaryToFind);
+            dv = dsResults.Tables[dictionaryToFind].DefaultView;
+            gvWords.DataSource = dv;
 
 
         }

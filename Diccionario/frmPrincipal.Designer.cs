@@ -51,10 +51,12 @@ namespace Diccionario
             this.btnCreateDictionary = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lbAvailableDictionaries = new System.Windows.Forms.ListBox();
+            this.gvWords = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.search.SuspendLayout();
             this.word.SuspendLayout();
             this.dictionary.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gvWords)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -71,6 +73,7 @@ namespace Diccionario
             // 
             // search
             // 
+            this.search.Controls.Add(this.gvWords);
             this.search.Controls.Add(this.gfrd);
             this.search.Controls.Add(this.cbSearchDictionary);
             this.search.Controls.Add(this.btnSearch);
@@ -294,6 +297,25 @@ namespace Diccionario
             this.lbAvailableDictionaries.Size = new System.Drawing.Size(150, 184);
             this.lbAvailableDictionaries.TabIndex = 15;
             // 
+            // gvWords
+            // 
+            this.gvWords.AllowUserToAddRows = false;
+            this.gvWords.AllowUserToDeleteRows = false;
+            this.gvWords.AllowUserToOrderColumns = true;
+            this.gvWords.AllowUserToResizeRows = false;
+            this.gvWords.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gvWords.BackgroundColor = System.Drawing.Color.White;
+            this.gvWords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvWords.GridColor = System.Drawing.SystemColors.ActiveBorder;
+            this.gvWords.Location = new System.Drawing.Point(87, 67);
+            this.gvWords.Name = "gvWords";
+            this.gvWords.RowHeadersWidth = 20;
+            this.gvWords.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.gvWords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gvWords.Size = new System.Drawing.Size(599, 321);
+            this.gvWords.TabIndex = 4;
+            this.gvWords.Visible = false;
+            // 
             // Diccionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -311,6 +333,7 @@ namespace Diccionario
             this.word.PerformLayout();
             this.dictionary.ResumeLayout(false);
             this.dictionary.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gvWords)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -339,6 +362,7 @@ namespace Diccionario
         private System.Windows.Forms.TextBox txtWord;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridView gvWords;
     }
 }
 

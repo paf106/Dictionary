@@ -112,6 +112,7 @@ namespace Diccionario
             this.btnSearch.TabIndex = 1;
             this.btnSearch.Text = "Search word";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtSearch
             // 
@@ -158,6 +159,7 @@ namespace Diccionario
             this.btnSaveWord.TabIndex = 11;
             this.btnSaveWord.Text = "Save word";
             this.btnSaveWord.UseVisualStyleBackColor = true;
+            this.btnSaveWord.Click += new System.EventHandler(this.btnSaveWord_Click);
             // 
             // txtMeaning
             // 

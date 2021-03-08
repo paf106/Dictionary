@@ -51,6 +51,7 @@ namespace Diccionario
 
                 MySqlCommand cmd = new MySqlCommand(createNewTable, con);
                 cmd.ExecuteNonQuery();
+                txtManageDictionary.Clear();
                 MessageBox.Show("Dictionary " + txtManageDictionary.Text + " created!");
                 refreshDictionaries();
             }
@@ -77,7 +78,58 @@ namespace Diccionario
 
         private void btnDeleteDictionary_Click(object sender, EventArgs e)
         {
-            String diccionarioABorrar = lbAvailableDictionaries.SelectedItem.ToString();
+
+            String diccionarioABorrar = "";
+            if (lbAvailableDictionaries.SelectedItem != null)
+            {
+                diccionarioABorrar = lbAvailableDictionaries.SelectedItem.ToString();
+                // Deletes a dictionary
+                String deleteTable = "drop table " + diccionarioABorrar;
+
+                MySqlCommand cmd = new MySqlCommand(deleteTable, con);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Dictionary " + diccionarioABorrar + " deleted!");
+                refreshDictionaries();
+            }
+            else
+            {
+                MessageBox.Show("You must select a dictionary");
+            }
+
+
+
+
+
+
+
+        }
+
+        private void btnSaveWord_Click(object sender, EventArgs e)
+        {
+            // check selected dictionary
+            String selectedDictionary = lbDictionary.SelectedItem.ToString();
+
+            // check fields are not empty
+            if (!txtWord.Text.Equals("") && !txtMeaning.Text.Equals(""))
+            {
+                // save the word
+                String command = "insert into " + selectedDictionary + " values ('" + txtWord.Text + "','" + txtMeaning.Text + "')";
+                MySqlCommand cmd = new MySqlCommand(command, con);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Word added", "Info");
+            }
+            else
+            {
+                MessageBox.Show("Fields cannot be blank", "Info");
+            }
+
+
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            String wordToFind = txtSearch.Text;
+
 
         }
     }

@@ -41,21 +41,29 @@ namespace Diccionario
         }
         private void btnCreateDictionary_Click(object sender, EventArgs e)
         {
-            // Creates a new dictionary
-            String createNewTable = "create table " + txtManageDictionary.Text + "(" +
-                                        "word varchar(50)," +
-                                        "meaning varchar(50)" +
-                                        ")";
+            try
+            {
+                // Creates a new dictionary
+                String createNewTable = "create table " + txtManageDictionary.Text + "(" +
+                                            "word varchar(50)," +
+                                            "meaning varchar(50)" +
+                                            ")";
 
-            MySqlCommand cmd = new MySqlCommand(createNewTable, con);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Dictionary " + txtManageDictionary.Text + " created!");
-            refreshDictionaries();
+                MySqlCommand cmd = new MySqlCommand(createNewTable, con);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Dictionary " + txtManageDictionary.Text + " created!");
+                refreshDictionaries();
+            }
+            catch (MySqlException)
+            {
+                MessageBox.Show("Dictionary " + txtManageDictionary.Text + " alerady exists!");
+            }
+
         }
 
         private void Diccionario_Load(object sender, EventArgs e)
         {
-            con = new MySqlConnection("server=localhost; Database=db_dictionary; user id=usuarioDictionary; password=passwordDictionary");
+            con = new MySqlConnection("Server=paf106.ddns.net; Port=9093; Database=db_dictionary; Uid=usuarioDictionary; Password=passwordDictionary;");
             try
             {
                 con.Open();

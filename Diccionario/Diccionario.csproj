@@ -91,5 +91,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="imgs\floppy-disk32.png" />
+    <Content Include="imgs\pencil.png" />
+    <Content Include="imgs\pencil32.png" />
+    <Content Include="imgs\plus.png" />
+    <Content Include="imgs\plus32.png" />
+    <Content Include="imgs\remove.png" />
+    <Content Include="imgs\remove32.png" />
+    <Content Include="imgs\search.png" />
+    <Content Include="imgs\search32.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -29,8 +29,10 @@ namespace Diccionario
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Diccionario));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.search = new System.Windows.Forms.TabPage();
+            this.gvWords = new System.Windows.Forms.DataGridView();
             this.gfrd = new System.Windows.Forms.Label();
             this.cbSearchDictionary = new System.Windows.Forms.ComboBox();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -51,12 +53,12 @@ namespace Diccionario
             this.btnCreateDictionary = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lbAvailableDictionaries = new System.Windows.Forms.ListBox();
-            this.gvWords = new System.Windows.Forms.DataGridView();
+            this.label6 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.search.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gvWords)).BeginInit();
             this.word.SuspendLayout();
             this.dictionary.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvWords)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -73,6 +75,7 @@ namespace Diccionario
             // 
             // search
             // 
+            this.search.Controls.Add(this.label6);
             this.search.Controls.Add(this.gvWords);
             this.search.Controls.Add(this.gfrd);
             this.search.Controls.Add(this.cbSearchDictionary);
@@ -87,11 +90,31 @@ namespace Diccionario
             this.search.ToolTipText = "Search for a word";
             this.search.UseVisualStyleBackColor = true;
             // 
+            // gvWords
+            // 
+            this.gvWords.AllowUserToAddRows = false;
+            this.gvWords.AllowUserToDeleteRows = false;
+            this.gvWords.AllowUserToOrderColumns = true;
+            this.gvWords.AllowUserToResizeRows = false;
+            this.gvWords.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gvWords.BackgroundColor = System.Drawing.Color.White;
+            this.gvWords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvWords.GridColor = System.Drawing.SystemColors.ActiveBorder;
+            this.gvWords.Location = new System.Drawing.Point(84, 87);
+            this.gvWords.Name = "gvWords";
+            this.gvWords.ReadOnly = true;
+            this.gvWords.RowHeadersWidth = 20;
+            this.gvWords.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.gvWords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gvWords.Size = new System.Drawing.Size(624, 233);
+            this.gvWords.TabIndex = 4;
+            this.gvWords.Visible = false;
+            // 
             // gfrd
             // 
             this.gfrd.AutoSize = true;
             this.gfrd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gfrd.Location = new System.Drawing.Point(145, 30);
+            this.gfrd.Location = new System.Drawing.Point(140, 51);
             this.gfrd.Name = "gfrd";
             this.gfrd.Size = new System.Drawing.Size(76, 20);
             this.gfrd.TabIndex = 3;
@@ -101,26 +124,28 @@ namespace Diccionario
             // 
             this.cbSearchDictionary.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSearchDictionary.FormattingEnabled = true;
-            this.cbSearchDictionary.Location = new System.Drawing.Point(227, 27);
+            this.cbSearchDictionary.Location = new System.Drawing.Point(222, 48);
             this.cbSearchDictionary.Name = "cbSearchDictionary";
             this.cbSearchDictionary.Size = new System.Drawing.Size(121, 28);
             this.cbSearchDictionary.TabIndex = 2;
             // 
             // btnSearch
             // 
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(537, 20);
+            this.btnSearch.ForeColor = System.Drawing.Color.Transparent;
+            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
+            this.btnSearch.Location = new System.Drawing.Point(621, 39);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(109, 41);
+            this.btnSearch.Size = new System.Drawing.Size(46, 39);
             this.btnSearch.TabIndex = 1;
-            this.btnSearch.Text = "Search word";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(373, 27);
+            this.txtSearch.Location = new System.Drawing.Point(457, 50);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(158, 26);
             this.txtSearch.TabIndex = 0;
@@ -146,47 +171,48 @@ namespace Diccionario
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(570, 148);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(408, 120);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 20);
+            this.label4.Size = new System.Drawing.Size(77, 20);
             this.label4.TabIndex = 12;
             this.label4.Text = "Meaning";
             // 
             // btnSaveWord
             // 
+            this.btnSaveWord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveWord.Location = new System.Drawing.Point(574, 242);
+            this.btnSaveWord.ForeColor = System.Drawing.Color.Transparent;
+            this.btnSaveWord.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveWord.Image")));
+            this.btnSaveWord.Location = new System.Drawing.Point(412, 192);
             this.btnSaveWord.Name = "btnSaveWord";
-            this.btnSaveWord.Size = new System.Drawing.Size(101, 40);
+            this.btnSaveWord.Size = new System.Drawing.Size(39, 38);
             this.btnSaveWord.TabIndex = 11;
-            this.btnSaveWord.Text = "Save word";
             this.btnSaveWord.UseVisualStyleBackColor = true;
             this.btnSaveWord.Click += new System.EventHandler(this.btnSaveWord_Click);
             // 
             // txtMeaning
             // 
             this.txtMeaning.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMeaning.Location = new System.Drawing.Point(574, 171);
-            this.txtMeaning.Multiline = true;
+            this.txtMeaning.Location = new System.Drawing.Point(412, 143);
             this.txtMeaning.Name = "txtMeaning";
-            this.txtMeaning.Size = new System.Drawing.Size(151, 60);
+            this.txtMeaning.Size = new System.Drawing.Size(151, 26);
             this.txtMeaning.TabIndex = 10;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(570, 75);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(408, 39);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 20);
+            this.label3.Size = new System.Drawing.Size(51, 20);
             this.label3.TabIndex = 9;
             this.label3.Text = "Word";
             // 
             // txtWord
             // 
             this.txtWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWord.Location = new System.Drawing.Point(574, 98);
+            this.txtWord.Location = new System.Drawing.Point(412, 62);
             this.txtWord.Name = "txtWord";
             this.txtWord.Size = new System.Drawing.Size(151, 26);
             this.txtWord.TabIndex = 8;
@@ -194,10 +220,10 @@ namespace Diccionario
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(355, 75);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(109, 34);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 20);
+            this.label2.Size = new System.Drawing.Size(191, 25);
             this.label2.TabIndex = 7;
             this.label2.Text = "Select Dictionary";
             // 
@@ -206,9 +232,9 @@ namespace Diccionario
             this.lbDictionary.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDictionary.FormattingEnabled = true;
             this.lbDictionary.ItemHeight = 20;
-            this.lbDictionary.Location = new System.Drawing.Point(359, 98);
+            this.lbDictionary.Location = new System.Drawing.Point(114, 62);
             this.lbDictionary.Name = "lbDictionary";
-            this.lbDictionary.Size = new System.Drawing.Size(150, 184);
+            this.lbDictionary.Size = new System.Drawing.Size(218, 284);
             this.lbDictionary.TabIndex = 6;
             // 
             // dictionary
@@ -230,60 +256,68 @@ namespace Diccionario
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(560, 69);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(485, 34);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(123, 20);
+            this.label5.Size = new System.Drawing.Size(182, 25);
             this.label5.TabIndex = 21;
             this.label5.Text = "Dictionary name";
             // 
             // txtManageDictionary
             // 
-            this.txtManageDictionary.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtManageDictionary.Location = new System.Drawing.Point(564, 92);
+            this.txtManageDictionary.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtManageDictionary.Location = new System.Drawing.Point(490, 62);
             this.txtManageDictionary.Name = "txtManageDictionary";
-            this.txtManageDictionary.Size = new System.Drawing.Size(129, 26);
+            this.txtManageDictionary.Size = new System.Drawing.Size(177, 31);
             this.txtManageDictionary.TabIndex = 20;
             // 
             // btnEditDictionary
             // 
+            this.btnEditDictionary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditDictionary.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditDictionary.Location = new System.Drawing.Point(435, 135);
+            this.btnEditDictionary.ForeColor = System.Drawing.Color.Transparent;
+            this.btnEditDictionary.Image = ((System.Drawing.Image)(resources.GetObject("btnEditDictionary.Image")));
+            this.btnEditDictionary.Location = new System.Drawing.Point(338, 116);
             this.btnEditDictionary.Name = "btnEditDictionary";
-            this.btnEditDictionary.Size = new System.Drawing.Size(100, 48);
+            this.btnEditDictionary.Size = new System.Drawing.Size(37, 40);
             this.btnEditDictionary.TabIndex = 19;
-            this.btnEditDictionary.Text = "Edit dictionary";
             this.btnEditDictionary.UseVisualStyleBackColor = true;
             // 
             // btnDeleteDictionary
             // 
+            this.btnDeleteDictionary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteDictionary.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteDictionary.Location = new System.Drawing.Point(435, 189);
+            this.btnDeleteDictionary.ForeColor = System.Drawing.Color.Transparent;
+            this.btnDeleteDictionary.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteDictionary.Image")));
+            this.btnDeleteDictionary.Location = new System.Drawing.Point(338, 62);
             this.btnDeleteDictionary.Name = "btnDeleteDictionary";
-            this.btnDeleteDictionary.Size = new System.Drawing.Size(100, 48);
+            this.btnDeleteDictionary.Size = new System.Drawing.Size(37, 39);
             this.btnDeleteDictionary.TabIndex = 18;
-            this.btnDeleteDictionary.Text = "Delete dictionary";
             this.btnDeleteDictionary.UseVisualStyleBackColor = true;
             this.btnDeleteDictionary.Click += new System.EventHandler(this.btnDeleteDictionary_Click);
             // 
             // btnCreateDictionary
             // 
+            this.btnCreateDictionary.BackColor = System.Drawing.Color.Transparent;
+            this.btnCreateDictionary.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnCreateDictionary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateDictionary.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateDictionary.Location = new System.Drawing.Point(435, 81);
+            this.btnCreateDictionary.ForeColor = System.Drawing.Color.Transparent;
+            this.btnCreateDictionary.Image = ((System.Drawing.Image)(resources.GetObject("btnCreateDictionary.Image")));
+            this.btnCreateDictionary.Location = new System.Drawing.Point(673, 55);
             this.btnCreateDictionary.Name = "btnCreateDictionary";
-            this.btnCreateDictionary.Size = new System.Drawing.Size(100, 48);
+            this.btnCreateDictionary.Size = new System.Drawing.Size(39, 38);
             this.btnCreateDictionary.TabIndex = 17;
-            this.btnCreateDictionary.Text = "Create new dictionary";
-            this.btnCreateDictionary.UseVisualStyleBackColor = true;
+            this.btnCreateDictionary.UseVisualStyleBackColor = false;
             this.btnCreateDictionary.Click += new System.EventHandler(this.btnCreateDictionary_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(257, 59);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(109, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 20);
+            this.label1.Size = new System.Drawing.Size(234, 25);
             this.label1.TabIndex = 16;
             this.label1.Text = "Available Dicionaries";
             // 
@@ -292,29 +326,20 @@ namespace Diccionario
             this.lbAvailableDictionaries.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAvailableDictionaries.FormattingEnabled = true;
             this.lbAvailableDictionaries.ItemHeight = 20;
-            this.lbAvailableDictionaries.Location = new System.Drawing.Point(261, 82);
+            this.lbAvailableDictionaries.Location = new System.Drawing.Point(114, 62);
             this.lbAvailableDictionaries.Name = "lbAvailableDictionaries";
-            this.lbAvailableDictionaries.Size = new System.Drawing.Size(150, 184);
+            this.lbAvailableDictionaries.Size = new System.Drawing.Size(218, 284);
             this.lbAvailableDictionaries.TabIndex = 15;
             // 
-            // gvWords
+            // label6
             // 
-            this.gvWords.AllowUserToAddRows = false;
-            this.gvWords.AllowUserToDeleteRows = false;
-            this.gvWords.AllowUserToOrderColumns = true;
-            this.gvWords.AllowUserToResizeRows = false;
-            this.gvWords.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gvWords.BackgroundColor = System.Drawing.Color.White;
-            this.gvWords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvWords.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.gvWords.Location = new System.Drawing.Point(87, 67);
-            this.gvWords.Name = "gvWords";
-            this.gvWords.RowHeadersWidth = 20;
-            this.gvWords.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.gvWords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvWords.Size = new System.Drawing.Size(599, 321);
-            this.gvWords.TabIndex = 4;
-            this.gvWords.Visible = false;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(404, 53);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 20);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Word";
             // 
             // Diccionario
             // 
@@ -329,11 +354,11 @@ namespace Diccionario
             this.tabControl1.ResumeLayout(false);
             this.search.ResumeLayout(false);
             this.search.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gvWords)).EndInit();
             this.word.ResumeLayout(false);
             this.word.PerformLayout();
             this.dictionary.ResumeLayout(false);
             this.dictionary.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvWords)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -363,6 +388,7 @@ namespace Diccionario
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView gvWords;
+        private System.Windows.Forms.Label label6;
     }
 }
 

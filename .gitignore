@@ -1,3 +1,6 @@
 dbFiles/
 docker-compose.yaml
 Dockerfile
+Diccionario/.vs/
+Diccionario/bin/
+Diccionario/obj/

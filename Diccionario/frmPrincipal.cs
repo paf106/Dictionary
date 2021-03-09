@@ -43,21 +43,31 @@ namespace Diccionario
         {
             try
             {
-                // Creates a new dictionary
-                String createNewTable = "create table " + txtManageDictionary.Text + "(" +
-                                            "word varchar(50)," +
-                                            "meaning varchar(50)" +
-                                            ")";
+                if (!txtManageDictionary.Text.Equals(""))
+                {
+                    // Creates a new dictionary
+                    String createNewTable = "create table " + txtManageDictionary.Text + "(" +
+                                                "word varchar(50)," +
+                                                "meaning varchar(50)" +
+                                                ")";
 
-                MySqlCommand cmd = new MySqlCommand(createNewTable, con);
-                cmd.ExecuteNonQuery();
-                txtManageDictionary.Clear();
-                MessageBox.Show("Dictionary " + txtManageDictionary.Text + " created!");
-                refreshDictionaries();
+                    MySqlCommand cmd = new MySqlCommand(createNewTable, con);
+                    cmd.ExecuteNonQuery();
+
+                    txtManageDictionary.Clear();
+
+                    refreshDictionaries();
+                    MessageBox.Show("Dictionary " + txtManageDictionary.Text + " created!","Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("You must provide a dictionary name", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
             }
             catch (MySqlException)
             {
-                MessageBox.Show("Dictionary " + txtManageDictionary.Text + " alerady exists!");
+                MessageBox.Show("Dictionary " + txtManageDictionary.Text + " alerady exists!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
@@ -78,11 +88,9 @@ namespace Diccionario
 
         private void btnDeleteDictionary_Click(object sender, EventArgs e)
         {
-
-            String diccionarioABorrar = "";
             if (lbAvailableDictionaries.SelectedItem != null)
             {
-                diccionarioABorrar = lbAvailableDictionaries.SelectedItem.ToString();
+                String diccionarioABorrar = lbAvailableDictionaries.SelectedItem.ToString();
                 // Deletes a dictionary
                 String deleteTable = "drop table " + diccionarioABorrar;
 
@@ -93,37 +101,35 @@ namespace Diccionario
             }
             else
             {
-                MessageBox.Show("You must select a dictionary");
+                MessageBox.Show("You must select a dictionary", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
-
-
-
-
-
-
         }
 
         private void btnSaveWord_Click(object sender, EventArgs e)
         {
-            // check selected dictionary
-            String selectedDictionary = lbDictionary.SelectedItem.ToString();
-
-            // check fields are not empty
-            if (!txtWord.Text.Equals("") && !txtMeaning.Text.Equals(""))
+            if (lbDictionary.SelectedItem != null)
             {
-                // save the word
-                String command = "insert into " + selectedDictionary + " values ('" + txtWord.Text + "','" + txtMeaning.Text + "')";
-                MySqlCommand cmd = new MySqlCommand(command, con);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Word added", "Info");
+                // check selected dictionary
+                String selectedDictionary = lbDictionary.SelectedItem.ToString();
+
+                // check fields are not empty
+                if (!txtWord.Text.Equals("") && !txtMeaning.Text.Equals(""))
+                {
+                    // save the word
+                    String command = "insert into " + selectedDictionary + " values ('" + txtWord.Text + "','" + txtMeaning.Text + "')";
+                    MySqlCommand cmd = new MySqlCommand(command, con);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Word added", "Info");
+                }
+                else
+                {
+                    MessageBox.Show("Fields cannot be blank", "Info");
+                }
             }
             else
             {
-                MessageBox.Show("Fields cannot be blank", "Info");
+                MessageBox.Show("You must select a dictionary", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
-
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -141,6 +147,14 @@ namespace Diccionario
             gvWords.DataSource = dv;
 
 
+        }
+
+        private void btnEditDictionary_Click(object sender, EventArgs e)
+        {
+            // Nombre del diccionario a editar
+            String diccionarioABorrar = lbAvailableDictionaries.SelectedItem.ToString();
+
+            new frmEditDictionary(con, diccionarioABorrar).ShowDialog();
         }
     }
 }

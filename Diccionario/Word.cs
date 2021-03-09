@@ -8,10 +8,10 @@ namespace Diccionario
 {
     class Word
     {
-        private string name;
-        private string meaning;
+        private String name;
+        private String meaning;
 
-        public Word(string name, string meaning)
+        public Word(String name, String meaning)
         {
             this.name = name;
             this.meaning = meaning;

@@ -4,3 +4,4 @@ Dockerfile
 Diccionario/.vs/
 Diccionario/bin/
 Diccionario/obj/
+deleteUnnecessaryFiles.cmd
